@@ -44,6 +44,7 @@ public class ContactCreationTests {
         initContactCreation();
         fillContactForm();
         submitContactCreation();
+        gotoHomePage();
     }
 
     private void submitContactCreation() {
@@ -67,6 +68,10 @@ public class ContactCreationTests {
 
     private void initContactCreation() {
         wd.findElement(By.linkText("add new")).click();
+    }
+
+    private void gotoHomePage() {
+        wd.findElement(By.linkText("home")).click();
     }
 
     @AfterMethod
