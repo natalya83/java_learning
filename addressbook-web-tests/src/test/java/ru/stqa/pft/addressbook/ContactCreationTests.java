@@ -42,7 +42,7 @@ public class ContactCreationTests {
     @Test
     public void testContactCreation() {
         initContactCreation();
-        fillContactForm();
+        fillContactForm(new ContactData("Natalja", "Kastrica", "26183677", "natalya83@inbox.lv"));
         submitContactCreation();
         gotoHomePage();
     }
@@ -51,19 +51,19 @@ public class ContactCreationTests {
         wd.findElement(By.xpath("//div[@id='content']/form/input[21]")).click();
     }
 
-    private void fillContactForm() {
+    private void fillContactForm(ContactData contactData) {
         wd.findElement(By.name("firstname")).click();
         wd.findElement(By.name("firstname")).clear();
-        wd.findElement(By.name("firstname")).sendKeys("Natalja");
+        wd.findElement(By.name("firstname")).sendKeys(contactData.getName());
         wd.findElement(By.name("lastname")).click();
         wd.findElement(By.name("lastname")).clear();
-        wd.findElement(By.name("lastname")).sendKeys("Kastrica");
+        wd.findElement(By.name("lastname")).sendKeys(contactData.getSurname());
         wd.findElement(By.name("mobile")).click();
         wd.findElement(By.name("mobile")).clear();
-        wd.findElement(By.name("mobile")).sendKeys("26183677");
+        wd.findElement(By.name("mobile")).sendKeys(contactData.getPhone());
         wd.findElement(By.name("email")).click();
         wd.findElement(By.name("email")).clear();
-        wd.findElement(By.name("email")).sendKeys("natalya83@inbox.lv");
+        wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
     }
 
     private void initContactCreation() {
