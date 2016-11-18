@@ -38,7 +38,7 @@ public class ContactHelper extends HelperBase{
   }
 
   public void selectContact() {
-    click(By.xpath("\"//div/div[4]/form[2]/table/tbody/tr[2]/td[1]/input\""));
+    click(By.name("selected[]"));
   }
 
   public void deleteSelectedContacts() {
@@ -58,5 +58,16 @@ public class ContactHelper extends HelperBase{
   }
 
   public void acceptAlert() {wd.switchTo().alert().accept();
+  }
+
+  public void createContact(ContactData contactData, boolean b) {
+    initContactCreation();
+    fillContactForm(contactData, b);
+    submitContactCreation();
+    returnToHomePage();
+  }
+
+  public boolean isThereAContact() {
+    return isElementPresent(By.name("selected[]"));
   }
 }
