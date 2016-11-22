@@ -19,7 +19,7 @@ public class NavigationHelper extends HelperBase {
             && isElementPresent(By.name("new"))) {
       return;
     }
-    click(By.linkText("groups"));
+    wd.get("http://localhost/addressbook/group.php");
   }
 
   public void gotoHomePage() {
