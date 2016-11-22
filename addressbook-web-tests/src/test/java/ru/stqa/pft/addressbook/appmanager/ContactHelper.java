@@ -60,9 +60,9 @@ public class ContactHelper extends HelperBase{
   public void acceptAlert() {wd.switchTo().alert().accept();
   }
 
-  public void createContact(ContactData contactData, boolean b) {
+  public void createContact(ContactData contactData) {
     initContactCreation();
-    fillContactForm(contactData, b);
+    fillContactForm(contactData, true);
     submitContactCreation();
     returnToHomePage();
   }
